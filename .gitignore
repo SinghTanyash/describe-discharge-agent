@@ -1,0 +1,27 @@
+# Environment variables
+.env
+
+# Virtual environment
+describe_env/
+
+# Python cache
+__pycache__/
+*.pyc
+
+# macOS
+.DS_Store
+
+# OCR output files
+outputs/
+
+# Temporary images
+*.png
+
+# VS Code
+.vscode/
+
+# Logs
+*.log
+
+# Patient files
+data/
