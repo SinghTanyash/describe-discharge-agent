@@ -83,7 +83,8 @@ Return valid JSON only.
             return []
 
         ocr_text = " ".join(
-            medications
+            med.name if hasattr(med, "name") else str(med)
+            for med in medications
         ).upper()
 
         verified = []

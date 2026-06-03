@@ -72,9 +72,6 @@ class DemographicsExtractor:
 
         age_patterns = [
 
-            r"Age\s*[:\-]?\s*(\d{1,3})",
-
-            r"Age\/Sex\s*[:\-]?\s*(\d{1,3})"
         ]
 
         for pattern in age_patterns:
