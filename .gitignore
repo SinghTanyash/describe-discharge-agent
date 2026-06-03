@@ -16,6 +16,9 @@ outputs/
 
 # Temporary images
 *.png
+# Allow architecture diagram
+
+!docs/architecture_diagram.png
 
 # VS Code
 .vscode/
