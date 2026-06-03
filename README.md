@@ -51,6 +51,8 @@ The system combines OCR processing, rule-based extraction, Large Language Models
 
 ## System Architecture
 
+![Describe Discharge Agent Architecture](docs/architecture_diagram.png)
+
 Hospital Discharge PDF
             │
             ▼
