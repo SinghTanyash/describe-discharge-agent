@@ -51,14 +51,79 @@ The system combines OCR processing, rule-based extraction, Large Language Models
 
 ## System Architecture
 
-text Hospital Discharge PDF             │             ▼       OCR Extraction             │             ▼       OCR Correction             │             ▼       Planner Agent             │  ┌──────────┼──────────┐  ▼          ▼          ▼  Extractors  Validators  Safety Checks   │           │            │  ▼           ▼            ▼  Structured Clinical State             │             ▼      Summary Generator             │             ▼     Clinician Review Layer             │             ▼      Final Discharge Summary              ▲             │       Learning Engine             │  ┌──────────┼──────────┐  ▼          ▼          ▼  Reward     Memory     Corrections 
+Hospital Discharge PDF
+            │
+            ▼
+      OCR Extraction
+            │
+            ▼
+      OCR Correction
+            │
+            ▼
+      Planner Agent
+            │
+ ┌──────────┼──────────┐
+ ▼          ▼          ▼
 
+Extractors  Validators  Safety Checks
+
+ │           │            │
+ ▼           ▼            ▼
+
+Structured Clinical State
+            │
+            ▼
+     Summary Generator
+            │
+            ▼
+    Clinician Review Layer
+            │
+            ▼
+     Final Discharge Summary
+
+            ▲
+            │
+      Learning Engine
+            │
+ ┌──────────┼──────────┐
+ ▼          ▼          ▼
+
+Reward     Memory     Corrections
 ---
 
 ## Project Structure
 
-text src/ │ ├── agents/ │   └── Workflow orchestration and planning │ ├── extractors/ │   ├── Diagnosis Extractor │   ├── Medication Extractor │   ├── Procedure Extractor │   ├── Allergy Extractor │   ├── Follow-up Extractor │   ├── Demographics Extractor │   └── Additional clinical extractors │ ├── models/ │   └── Data models │ ├── tools/ │   ├── OCR Corrector │   ├── Medication Reconciliation │   ├── Drug Interaction Checker │   ├── Conflict Detector │   ├── Summary Generator │   ├── Learning Engine │   ├── Reward Calculator │   ├── Simulated Doctor │   └── Correction Memory │ ├── workflows/ │ └── tests/ 
-
+src/
+│
+├── agents/
+│   └── Workflow orchestration and planning
+│
+├── extractors/
+│   ├── Diagnosis Extractor
+│   ├── Medication Extractor
+│   ├── Procedure Extractor
+│   ├── Allergy Extractor
+│   ├── Follow-up Extractor
+│   ├── Demographics Extractor
+│   └── Additional clinical extractors
+│
+├── models/
+│   └── Data models
+│
+├── tools/
+│   ├── OCR Corrector
+│   ├── Medication Reconciliation
+│   ├── Drug Interaction Checker
+│   ├── Conflict Detector
+│   ├── Summary Generator
+│   ├── Learning Engine
+│   ├── Reward Calculator
+│   ├── Simulated Doctor
+│   └── Correction Memory
+│
+├── workflows/
+│
+└── tests/
 ---
 
 ## Technology Stack
