@@ -5,6 +5,8 @@ import os
 
 
 class PDFExtractor:
+    def extract(self, pdf_path):
+        return self.extract_text(pdf_path)
 
     def extract_text(self, pdf_path):
 

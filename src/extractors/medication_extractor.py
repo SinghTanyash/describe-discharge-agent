@@ -36,7 +36,6 @@ class MedicationExtractor:
                 or "INJ" in line.upper()
             ):
 
-                # Remove OCR garbage
                 line = line.replace("100", "")
                 line = line.replace("IS DAYS", "15 DAYS")
                 line = line.replace("ITABSOS", "TABLETS")
@@ -50,9 +49,25 @@ class MedicationExtractor:
                     line
                 ).strip()
 
-                if len(line) > 5:
-                    medications.append(line)
+                medicine_match = re.search(
+                    r"(?:TAB|CAP|INJ)\.?\s+([A-Z0-9\s\-]+)",
+                    line,
+                    re.IGNORECASE
+                )
 
-        medications = list(set(medications))
+                if medicine_match:
+
+                    medicine = (
+                        medicine_match.group(1)
+                        .strip()
+                    )
+
+                    medications.append(
+                        medicine
+                    )
+
+        medications = list(
+            set(medications)
+        )
 
         return medications
