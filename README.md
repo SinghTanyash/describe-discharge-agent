@@ -1,83 +1,156 @@
-Describe Discharge Agent
+# Describe Discharge Agent
 
-Overview
+## Overview
 
-Describe Discharge Agent is an AI-powered workflow for processing hospital discharge summaries.
+Describe Discharge Agent is an AI-powered multi-stage workflow for extracting, validating, and generating structured discharge summaries from hospital discharge documents.
 
-The system extracts structured medical information from OCR-processed discharge documents and generates a concise discharge summary using Gemini.
+The system combines OCR processing, rule-based extraction, Large Language Models (Gemini), safety validation, conflict detection, and a self-learning feedback loop to transform unstructured medical discharge reports into structured clinical summaries.
 
-Features
+---
 
-- OCR-based PDF text extraction
-- Diagnosis extraction
-- Medication extraction
-- Follow-up instruction extraction
-- Hospital course extraction
-- Pending result extraction
-- Agent-based workflow orchestration
-- Execution trace logging
-- Gemini-powered discharge summary generation
-- Clinician review flagging
+## Key Features
 
-Architecture
+### Clinical Information Extraction
 
-PDF → OCR → Extractors → Agent State → Planner → Gemini → Discharge Summary
+- Diagnosis Extraction
+- Medication Extraction
+- Medication Reconciliation
+- Procedure Extraction
+- Allergy Extraction
+- Follow-up Instruction Extraction
+- Hospital Course Extraction
+- Discharge Condition Extraction
+- Pending Result Extraction
+- Demographics Extraction
+- Date Extraction
 
-Extractors
+### Safety and Validation
 
-- Diagnosis Extractor
-- Medication Extractor
-- Follow-up Extractor
-- Hospital Course Extractor
-- Pending Result Extractor
+- Drug Interaction Checking
+- Clinical Conflict Detection
+- Clinician Review Recommendations
+- Medication Hallucination Detection
+- Missing Information Detection
 
-Agent Workflow
+### AI Capabilities
 
-1. Extract diagnoses
-2. Extract medications
-3. Extract follow-up instructions
-4. Extract hospital course
-5. Extract pending results
-6. Generate structured state
-7. Generate discharge summary using Gemini
+- OCR Text Correction using Gemini
+- Medication Normalization using Gemini
+- Automated Discharge Summary Generation
+- Multi-Step Agent Planning Workflow
 
-Project Structure
+### Self-Learning System
 
-src/
-├── agents/
-├── extractors/
-├── models/
-├── tools/
-├── workflows/
-└── tests/
+- Simulated Doctor Review
+- Reward-Based Evaluation
+- Persistent Correction Memory
+- Automatic Error Learning
+- Iterative Summary Improvement
 
-Setup
+---
 
-bash python3 -m venv describe_env source describe_env/bin/activate pip install -r requirements.txt 
+## System Architecture
+
+text Hospital Discharge PDF             │             ▼       OCR Extraction             │             ▼       OCR Correction             │             ▼       Planner Agent             │  ┌──────────┼──────────┐  ▼          ▼          ▼  Extractors  Validators  Safety Checks   │           │            │  ▼           ▼            ▼  Structured Clinical State             │             ▼      Summary Generator             │             ▼     Clinician Review Layer             │             ▼      Final Discharge Summary              ▲             │       Learning Engine             │  ┌──────────┼──────────┐  ▼          ▼          ▼  Reward     Memory     Corrections 
+
+---
+
+## Project Structure
+
+text src/ │ ├── agents/ │   └── Workflow orchestration and planning │ ├── extractors/ │   ├── Diagnosis Extractor │   ├── Medication Extractor │   ├── Procedure Extractor │   ├── Allergy Extractor │   ├── Follow-up Extractor │   ├── Demographics Extractor │   └── Additional clinical extractors │ ├── models/ │   └── Data models │ ├── tools/ │   ├── OCR Corrector │   ├── Medication Reconciliation │   ├── Drug Interaction Checker │   ├── Conflict Detector │   ├── Summary Generator │   ├── Learning Engine │   ├── Reward Calculator │   ├── Simulated Doctor │   └── Correction Memory │ ├── workflows/ │ └── tests/ 
+
+---
+
+## Technology Stack
+
+- Python
+- Gemini API
+- Regular Expressions
+- Agent-Based Workflow Design
+- Rule-Based Medical Information Extraction
+- Reinforcement Learning Inspired Feedback Loop
+- Git & GitHub
+
+---
+
+## Setup
+
+### Clone Repository
+
+bash git clone https://github.com/SinghTanyash/describe-discharge-agent.git cd describe-discharge-agent 
+
+### Create Virtual Environment
+
+bash python3 -m venv describe_env source describe_env/bin/activate 
+
+### Install Dependencies
+
+bash pip install -r requirements.txt 
+
+### Configure Environment Variables
 
 Create a .env file:
 
-env GEMINI_API_KEY=your_api_key 
+env GEMINI_API_KEY=your_api_key_here 
 
-Run Tests
+---
 
-bash PYTHONPATH=src python src/tests/test_agent.py PYTHONPATH=src python src/tests/test_llm_summary.py 
+## Running the Project
 
-Example Output
+### Full Agent Workflow
+
+bash PYTHONPATH=src python src/tests/test_agent.py 
+
+### Individual Component Tests
+
+bash PYTHONPATH=src python src/tests/test_demographics.py PYTHONPATH=src python src/tests/test_allergy.py PYTHONPATH=src python src/tests/test_medication_verifier.py PYTHONPATH=src python src/tests/test_learning_loop.py 
+
+---
+
+## Example Outputs
 
 The system generates:
 
 - Diagnoses
-- Hospital course
-- Discharge medications
-- Follow-up instructions
-- Pending results
-- Clinician review recommendation
+- Procedures
+- Hospital Course
+- Discharge Medications
+- Follow-up Instructions
+- Pending Results
+- Clinician Review Recommendations
+- Structured Discharge Summaries
 
-Future Improvements
+---
 
-- Medication normalization
-- Better OCR cleanup
-- FHIR compatibility
-- Structured JSON discharge summaries
-- Multi-patient support
+## Learning Loop
+
+The project includes a feedback-driven learning mechanism:
+
+1. Initial discharge summary generated.
+2. Simulated doctor reviews output.
+3. Reward score calculated.
+4. Corrections stored in memory.
+5. Future summaries automatically improved.
+
+This enables continuous improvement without retraining the model.
+
+---
+
+## Future Enhancements
+
+- FHIR Integration
+- HL7 Compatibility
+- Real Clinical Knowledge Base Integration
+- Multi-Language Support
+- Hospital Information System Integration
+- Human-in-the-Loop Review Dashboard
+
+---
+
+## Author
+
+Tanyash Singh
+
+AI-Powered Clinical Document Processing Project
+
+Version: v1.0
