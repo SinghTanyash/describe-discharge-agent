@@ -20,8 +20,7 @@ class DemographicsExtractor:
             r"Patient\s+Name\s*[:\-]?\s*([A-Za-z .]+)",
             r"Name\s+of\s+Patient\s*[:\-]?\s*([A-Za-z .]+)",
             r"Pt\s+Name\s*[:\-]?\s*([A-Za-z .]+)",
-            r"Patient\s*[:\-]?\s*([A-Za-z .]+)",
-            r"Name\s*[:\-]?\s*([A-Za-z .]+)"
+            r"Name\s*[:\-]?\s*([A-Za-z ]{2,50})"
         ]
 
         invalid_names = [
@@ -50,6 +49,7 @@ class DemographicsExtractor:
                     .strip()
                     .replace("\n", " ")
                 )
+                candidate = candidate.split("\n")[0].strip()
 
                 candidate = re.sub(
                     r"\s+",
@@ -71,7 +71,8 @@ class DemographicsExtractor:
         # ----------------------------
 
         age_patterns = [
-
+            r"\b(\d{1,3})\s*years?\b",
+            r"Age\s*[:\-]?\s*(\d{1,3})",
         ]
 
         for pattern in age_patterns:
